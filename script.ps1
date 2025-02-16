@@ -12,11 +12,12 @@ clear
 Write-Host "Installing Syncplay..." -ForegroundColor Green
 choco install syncplay --pre -y
 clear
-refreshenv
+
 
 ### MPV Setup
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 Write-Host "Setting up MPV..." -ForegroundColor Green
-mpv
+mpv.exe
 Start-Sleep -Seconds 5
 Stop-Process -Name mpv
 $path = "$env:APPDATA\mpv\input.conf"
@@ -36,6 +37,6 @@ if (Test-Path $path) {
 
 ### Stremio Setup
 # Get MPV's path
-$GetMPVsPath = Get-Command mpv | Select-Object -ExpandProperty Path
+$GetMPVsPath = Get-Command mpv.exe | Select-Object -ExpandProperty Path
 Set-Clipboard -Value $GetMPVsPath
 notepad "$env:localappdata\Programs\LNV\Stremio-4\server.js"
