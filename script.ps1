@@ -1,5 +1,5 @@
 # Run `Set-ExecutionPolicy Bypass -Scope Process` first
-# Then run `iex ((New-Object System.Net.WebClient).DownloadString('https://LINK.PENDING'))`
+# Then run `iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/GerasSB/BasicMediaSetup/refs/heads/main/script.ps1'))`
 
 ### Install Stuff
 Write-Host "Installing Chocolatey..." -ForegroundColor Green
@@ -7,10 +7,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 refreshenv
 clear
 Write-Host "Installing MPV, YT-DLP & Stremio..." -ForegroundColor Green
-cinst mpv -y ; cinst yt-dlp -y ; cinst stremio -y
+choco install mpv -y ; choco install yt-dlp -y ; choco install stremio -y
 clear
 Write-Host "Installing Syncplay..."
-cinst syncplay --pre -y
+choco install syncplay --pre -y
 ### MPV Setup
 Write-Host "Setting up MPV..."
 $path = "$env:APPDATA\mpv\input.conf"
