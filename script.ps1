@@ -9,10 +9,16 @@ clear
 Write-Host "Installing MPV, YT-DLP & Stremio..." -ForegroundColor Green
 choco install mpv -y ; choco install yt-dlp -y ; choco install stremio -y
 clear
-Write-Host "Installing Syncplay..."
+Write-Host "Installing Syncplay..." -ForegroundColor Green
 choco install syncplay --pre -y
+clear
+refreshenv
+
 ### MPV Setup
-Write-Host "Setting up MPV..."
+Write-Host "Setting up MPV..." -ForegroundColor Green
+mpv
+Start-Sleep -Seconds 5
+Stop-Process -Name mpv
 $path = "$env:APPDATA\mpv\input.conf"
 $lines = "WHEEL_UP seek 10`nWHEEL_DOWN seek -10"
 
@@ -27,3 +33,9 @@ if (Test-Path $path) {
     # Create file and add lines
     Set-Content -Path $path -Value $lines
 }
+
+### Stremio Setup
+# Get MPV's path
+$GetMPVsPath = Get-Command mpv | Select-Object -ExpandProperty Path
+Set-Clipboard -Value $GetMPVsPath
+notepad "$env:localappdata\Programs\LNV\Stremio-4\server.js"
