@@ -5,13 +5,13 @@
 Write-Host "Installing Chocolatey..." -ForegroundColor Green
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 refreshenv
-clear
+Clear-Host
 Write-Host "Installing MPV, YT-DLP & Stremio..." -ForegroundColor Green
 choco install mpv -y ; choco install yt-dlp -y ; choco install stremio -y
-clear
+Clear-Host
 Write-Host "Installing Syncplay..." -ForegroundColor Green
-choco install syncplay --pre -y
-clear
+choco install vcredist140 -y ; choco install syncplay --pre -y
+Clear-Host
 
 
 ### MPV Setup
@@ -39,11 +39,12 @@ if (Test-Path $path) {
 # Get MPV's path
 $GetMPVsPath = Get-Command mpv.exe | Select-Object -ExpandProperty Path
 Set-Clipboard -Value $GetMPVsPath
+Clear-Host
 Write-Host "All Done!" -ForegroundColor Green
 Write-Host "Your clipboard has been modified." -ForegroundColor Green
 Write-Host "Search for 'mpv' in the notepad file and paste your clipboard" -ForegroundColor Green 
 Write-Host "inside the brackets next to Win32." -ForegroundColor Green
 Write-Host "`n"
-Write-Host "Lastly, install the Torrentio addon."
-start https://torrentio.strem.fun/configure
+Write-Host "Lastly, install the Torrentio addon." -ForegroundColor Green
+Start-Process https://torrentio.strem.fun/configure
 notepad "$env:localappdata\Programs\LNV\Stremio-4\server.js"
