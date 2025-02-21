@@ -1,6 +1,3 @@
-# Run `Set-ExecutionPolicy Bypass -Scope Process` first
-# Then run `iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/GerasSB/BasicMediaSetup/refs/heads/main/script.ps1'))`
-
 ### Install Stuff
 Write-Host "Installing Chocolatey..." -ForegroundColor Green
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -15,7 +12,9 @@ Clear-Host
 
 
 ### MPV Setup
+# reload path
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+
 Write-Host "Setting up MPV..." -ForegroundColor Green
 mpv.exe
 Start-Sleep -Seconds 5
@@ -33,6 +32,20 @@ if (Test-Path $path) {
 } else {
     # Create file and add lines
     Set-Content -Path $path -Value $lines
+}
+
+# YTMP3
+$path = "C:\Windows\ytmp3.bat"
+if (Test-Path $path) {
+} else {
+    wget 'https://raw.githubusercontent.com/GerasSB/BasicMediaSetup/refs/heads/main/ytmp3.bat' -O $path
+}
+
+# YTDL
+$path = "C:\Windows\ytdl.bat"
+if (Test-Path $path) {
+} else {
+    wget 'https://raw.githubusercontent.com/GerasSB/BasicMediaSetup/refs/heads/main/ytdl.bat' -O $path
 }
 
 ### Stremio Setup

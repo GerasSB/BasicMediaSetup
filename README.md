@@ -11,3 +11,12 @@ Inside the Notepad file that opens up, search for "mpv" (should be the second re
 
 ### 4. Install Torrentio
 Configure and install the Torrentio addon via the link that opens up in your browser.
+
+# Features
+* MPV: video player
+* YT-DLP: Youtube (& other sites) downloader
+* Syncplay: watch videos with friends
+* Stremio: live-playback torrenting for shows & movies
+* New easy commands:
+    * ytmp3: download a youtube video as mp3
+    * ytdl: download a youtube video in the best quality available
