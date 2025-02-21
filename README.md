@@ -17,6 +17,6 @@ Configure and install the Torrentio addon via the link that opens up in your bro
 * YT-DLP: Youtube (& other sites) downloader
 * Syncplay: watch videos with friends
 * Stremio: live-playback torrenting for shows & movies
-* New easy commands:
+* New simple commands:
     * ytmp3: download a youtube video as mp3
     * ytdl: download a youtube video in the best quality available

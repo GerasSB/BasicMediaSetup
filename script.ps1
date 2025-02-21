@@ -4,7 +4,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 refreshenv
 Clear-Host
 Write-Host "Installing MPV, YT-DLP & Stremio..." -ForegroundColor Green
-choco install mpv -y ; choco install yt-dlp -y ; choco install stremio -y
+choco install mpv -y ; choco install yt-dlp -y ; choco install stremio -y ; choco install ffmpeg -y
 Clear-Host
 Write-Host "Installing Syncplay..." -ForegroundColor Green
 choco install vcredist140 -y ; choco install syncplay --pre -y
