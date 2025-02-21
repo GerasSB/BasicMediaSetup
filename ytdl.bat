@@ -6,4 +6,4 @@ echo.
 echo Enter your Youtube link:
 set /P ytlink= :
 
-yt-dlp "%ytlink%" -f best
+yt-dlp "%ytlink%"
